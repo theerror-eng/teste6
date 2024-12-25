@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Neon Site Style</title>
+    <style>
+      *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+  font-family: Sans-Serif;
+}
+:target {
+  scroll-margin-top: 130px; /* Altura do cabeçalho fixo */
+}
+body{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  min-height:100vh;
+  background: #000;
+}
+.mae{
+  display: none;
+	animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	transition-delay: 6s;
+	transition: all 70s;
+	flex-direction: column;
+}
+.welcome{
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.welcome h1{
+  font-family: Monospace;
+  width:25ch;
+  border-right: 2px solid white;
+  font-size: 23px;
+  color: #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: animaTexto steps(25) 2s,animaMarcador 0.5s infinite linear;
+}
+@keyframes animaMarcador{
+  50%{
+    border-right: transparent;
+  }
+}
+@keyframes animaTexto{
+    0%{
+    width:0;
+  }
+}
+header{
+  display: flex;
+  flex-direction: column;
+  position: sticky; 
+  top: 0;
+  z-index: 5;
+  background: #111;
+}
+header h1{
+ text-align:center;
+ color:white;
+ margin-bottom:30px;
+ text-transform:uppercase;
+}
+nav ul{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+nav li{
+  margin-bottom: 20px;
+}
+a{
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+#borda{
+  height: 3px;
+  width: 100%;
+  background: white;
+}
+.content{
+  position: relative;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:250px ;
+  height: 300px;
+  text-align: left;
+  color: white;
+  margin-left: 15px;
+}
+.content h1{
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.content .btn{
+  position: relative;
+  margin-top: 10px;
+  width: 100px;
+  height: 45px;
+  background: #1a1a1f;
+  color: white;
+  border: none;
+}
+.content .btn::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  border-top:2px solid white;
+  border-right:2px solid white;
+  animation: cima-direito 4s infinite alternate;
+  transition: border 10s;
+}
+@keyframes cima-direito{
+  0%{
+   width: 0;
+   height: 0;
+  }
+  25%{
+    width: 100px;
+   height: 0;
+  }
+  50%{
+   width: 100px;
+   height: 42px;
+  }
+  100%{
+    width: 100px;
+    height: 42px;
+  }
+}
+.content .btn::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  border-bottom:2px solid white;
+  border-left:2px solid white;
+  animation: baixo-esquerdo 4s infinite alternate;
+  transition: border 10s;
+}
+@keyframes baixo-esquerdo{
+  0%{
+    width: 0;
+   height: 0;
+   opacity: 0;
+  }
+  50%{
+    width: 0;
+   height: 0;
+   opacity: 0;
+  }
+  50.1%{
+    width: 0;
+   height: 0;
+   opacity: 1;
+  }
+  75%{
+    width: 100px;
+   height: 0;
+   opacity: 1;
+  }
+  100%{
+    width: 100px;
+   height: 42px;
+   opacity: 1;
+  }
+}
+.content .btn:hover{
+  color: #1a1a1f;
+  background: white;
+  box-shadow: 0 0 5px white,0 0 25px white,0 0 50px white,0 0 200px white;
+  z-index: 1;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+.falsebox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+.caixas{
+  display: none;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 1px 0;
+  flex-wrap: wrap;
+}
+.card{
+  display: flex;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  max-width: 100%;
+  margin-bottom:50px ;
+  margin-left:20px;
+  margin-right: 20px;
+  width: 300px; 
+  height: 510px;
+  background:transparent;
+}
+.card::before{
+  content: "";
+  position: absolute;
+  height: 0;
+  top: 0;
+  left: 0;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  animation: cimadireito 3s 1;
+}
+@keyframes cimadireito{
+  0%{
+   width: 0;
+   height: 0;
+  }
+  25%{
+    width: 300px;
+   height: 0;
+  }
+  50%{
+   width: 300px;
+   height: 508px;
+  }
+  100%{
+    width: 300px;
+    height: 508px;
+}
+}
+.card::after{
+  content: "";
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom:3px solid white;
+  border-left: 3px solid white;
+  animation: baixoesquerdo 3s 1;
+  transition: all 20s;
+}
+@keyframes baixoesquerdo{
+  0%{
+    width: 0;
+   height: 0;
+   opacity: 0;
+  }
+  50%{
+    width: 0;
+   height: 0;
+   opacity: 0;
+  }
+  50.1%{
+    width: 0;
+   height: 0;
+   opacity: 1;
+  }
+  75%{
+    width: 300px;
+   height: 0;
+   opacity: 1;
+  }
+  100%{
+    width: 300px;
+   height: 508px;
+   opacity: 1;
+  }
+}
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: 20px;
+  border-radius: 50%;
+  border: 5px solid rgba(225, 225, 225,0.1);
+  border-top-color: white;
+  animation: spin 1s 4 linear;
+}
+@keyframes spin{
+ from{
+   rotate: 0deg;
+ }
+  to{
+    rotate: 360deg;
+  }
+}
+.box{
+  display:block;
+  position: relative;
+  max-width: 100%;
+  margin-bottom:30px ;
+  margin-left:20px;
+  margin-right: 20px;
+  width: 300px; 
+  height: 510px;
+  text-align: justify;
+  background:#1a1a1f;
+  overflow: hidden;
+	animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	box-shadow: 0 0 5px #1a1a1f,0 0 25px #1a1a1f,0 0 50px #1a1a1f,0 0 200px #1a1a1f;
+}
+.box:hover{
+  background: white;
+  box-shadow: 0 0 5px white,0 0 25px white,0 0 50px white,0 0 200px white;
+}
+.box:hover .conteudo{
+  color: #1a1a1f;
+}
+@keyframes scale-in-ver-top {
+  0% {
+    transform: scaleY(0);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}
+.box span{
+  display: block;
+  position: absolute;
+  transition: all 90s;
+}
+.box span:nth-child(1){
+  top: 0;
+  left: -100%;
+ width: 100%;
+ height: 5px;
+ background:linear-gradient(90deg,transparent,white);
+ animation: animacao1 2s linear infinite; 
+ animation-delay: 0s;
+}
+@keyframes animacao1{
+  0%{
+    left:-100%;
+  }
+  50%,100%{
+    left: 100%;
+  }
+}
+ .box span:nth-child(3){
+  bottom: 0;
+  right: -100%;
+ width: 100%;
+ height: 5px;
+ background:linear-gradient(270deg,transparent,white);
+ animation: animacao3 2s linear infinite; 
+ animation-delay: 1s;
+}
+@keyframes animacao3{
+  0%{
+    right:-100%;
+  }
+  50%,100%{
+    right: 100%; 
+  }
+}
+ .box span:nth-child(2){
+  top: -100%;
+  right: 0;
+ width: 5px;
+ height: 100%;
+ background:linear-gradient(270deg,transparent,white);
+ animation: animacao2 2s linear infinite; 
+ animation-delay: 0.5s;
+}
+@keyframes animacao2{
+  0%{
+    top:-100%;
+  }
+  50%,100%{
+    top: 100%; 
+  }
+}
+.box span:nth-child(4){
+  bottom: -100%;
+  left: 0;
+ width: 5px;
+ height: 100%;
+ background:linear-gradient(360deg,transparent,white);
+ animation: animacao4 2s linear infinite; 
+ animation-delay: 1.5s;
+}
+@keyframes animacao4{
+  0%{
+    bottom:-100%;
+  }
+  50%,100%{
+    bottom: 100%; 
+  }
+}
+img{
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 100%;
+	animation: puff-in-top 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+@keyframes puff-in-top {
+  0% {
+    transform: scale(2);
+    transform-origin: 50% 0%;
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 0%;
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+.conteudo{
+  position: relative;
+  display: block;
+  color:white;
+  padding: 5px;
+  overflow: hidden;
+}
+.conteudo h2{
+  text-align:center;
+}
+.conteudo p{
+  font-size:18px;
+}
+.section{
+  display: none;
+  overflow: hidden;
+  margin: 40px 0;
+}
+section{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 250px; 
+  margin-bottom: 90px;
+}
+.section section div{
+  
+}
+.hidden {
+  color:white;
+  opacity: 0;
+  margin: 20px 10px 100px 10px;
+  filter: blur(20px);
+  transition: all 1s;
+  line-height: 1.30;
+  transform: translateX(100%);
+}
+.show {
+  color: white;
+  opacity: 1;
+  margin: 20px 10px 100px 10px;
+  filter: blur(0px);
+  transition: all 0.5s;
+  transform: translateX(0%);
+  border: none;
+}
+.acrescimos{
+  width: 100%;
+  height: 400px;
+  text-align: left;
+  background: black;
+  border: 2px solid white;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.acrescimos h1{
+  text-align: center;
+}
+    </style>
+  </head>
+  <body>
+  <div id="wel" class="welcome">
+  <h1>Seja Bem-vindo a A-Space!</h1>
+   </div>
+    <div id="mae" class="mae">
+    <header>
+              <h1>A-Space</h1>
+      <nav>
+     <ul>
+       <li> <a href="#section1" class="grade" >Início</a>
+       </li>
+       <li><a href="#section2" class="grade" >Empresa</a>
+      </li>
+      <li><a href="#section3" class="grade" >Contacto</a>
+     </li>
+     <li><a href="#section4" class="grade" >Sobre Nós</a></li>
+     </ul>
+      </nav>
+   <div id="borda"></div>
+   </header>
+    <article   class="content">
+      <div id="section1">
+       <h1>Orbit the Earth</h1>
+        <p>Reporting from de NASA page, a satelite is an object that orbits surrounding another object in space. There are two different types of satellites, namely natural and artificial satellite. As quoted by Science Learn, according to Dr. Allan, a satellite is anything that orbits around larger objects.</p>
+        <button class="btn">Começar</button>
+      </div>
+    </article>
+    <!--Conteúdo Principal do Site-->
+    <main>
+    <!--Conteiner que abriga todas as boxes,tanto verdadeiras quanto falsas-->
+    <div class="container">
+    <!--Div que abriga as boxes falsas-->
+      <div id="falsebox" class="falsebox">
+        <div class="card">
+     <span class="spinner"></span>
+        </div>
+        <div class="card">
+     <span class="spinner"></span>
+        </div>
+        <div class="card">
+    <span class="spinner"></span>
+        </div>
+      </div>
+  <!--Div que abriga todas as boxes verdadeiras-->
+      <div  id="caixas" class="caixas">
+         <!--Primeira Box-->
+        <div  class="box">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+         <!--Conteúdo da box1-->
+          <div class="conteudo">
+            <img src="Eutelsat-assina-acordo-de-expansao-de-servicos-de-banda-larga-via-satelite-para-Africa-Subsaariana-1_045044~2.png" alt="" />  
+            <h2>Satélites</h2>
+            <p>Satélites são objetos que orbitam planetas ou luas. Eles podem ser naturais, como a Lua que orbita a Terra, ou artificiais, que são feitos pelo homem e lançados ao espaço para diversas finalidades. Os satélites artificiais são usados para comunicação, meteorologia, navegação, pesquisa científica e muito mais. Eles podem estar em diferentes tipos de órbitas, como órbita baixa da Terra (LEO), órbita geossíncrona (GEO) e órbita média (MEO). Cada tipo de órbita tem suas próprias características e usos específicos.</p>
+          </div>
+        </div>
+        <!--Segunda Box-->
+        <div class="box">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+       <!--Conteúdo da box2-->
+          <div class="conteudo">
+            <img src="many-natural-satellites-Earth~2.jpg" />
+            <h2>Satélite Natural</h2>
+            <p>Satélites naturais são corpos celestes que orbitam planetas ou outros astros. A Lua, que orbita a Terra, é um exemplo. Diferentemente dos artificiais, eles não são construídos, mas formados por processos naturais no cosmos. Sua influência é crucial para a dinâmica planetária, afetando marés, estabilidade do eixo de rotação e até condições climáticas. Além disso, estudá-los fornece informações sobre a formação e evolução dos sistemas planetários.</p>
+          </div>
+        </div>
+      <!--Terceira Box-->
+        <div class="box">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+           <!--Conteúdo da box3-->
+          <div class="conteudo">
+          <img src="360_F_725720829_2nFcwJkRKQn3Fdq0GFlJxJXiTIKe2CS4~2.jpg"/>
+         <h2>Satélites Artificiais</h2>
+         <p>Satélites artificiais são dispositivos construídos pelo homem e lançados ao espaço para orbitar a Terra ou outros corpos celestes. Eles desempenham funções essenciais, como comunicação global, monitoramento climático, observação astronômica, espionagem e navegação por GPS. Podem ser colocados em diferentes órbitas, como baixa (LEO), média (MEO) ou geossíncrona (GEO), dependendo de suas finalidades,evoluindo constantemente, tornando-os indispensáveis para a vida moderna.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="sec" class="section">
+          <section class="hidden">
+   <div class="hidden">
+           <h2>Evolução dos Satélites</h2>
+      <p>A ideia de objetos orbitando a Terra começou a ganhar destaque com as descobertas astronômicas de Johannes Kepler e Isaac Newton nos séculos XVII e XVIII, que explicaram a dinâmica das órbitas. No entanto, o conceito de satélites artificiais foi imaginado apenas no século XX, com autores como Konstantin Tsiolkovsky e Arthur C. Clarke vislumbrando dispositivos em órbitas para comunicação global. O primeiro satélite artificial, o Sputnik 1, foi lançado pela União Soviética em 1957, marcando o início da era espacial. Desde então, os satélites passaram por grandes avanços tecnológicos, tornando-se menores, mais eficientes e especializados para diferentes funções.</p>
+   </div>
+</section>
+<section class="hidden">
+     <div class="hidden">
+ <h2>Para que Servem os Satélites?</h2>
+<p>Os satélites têm aplicações amplas e diversificadas, que incluem:<br>
+Navegação: Operar sistemas como o GPS, essenciais para transporte, mapeamento e localização.<br>
+Meteorologia: Monitorar o clima, prever condições meteorológicas e rastrear eventos extremos, como furacões.<br>
+Ciência e Exploração: Observar o universo, coletar dados de outros planetas e estudar fenômenos terrestres.<br>
+Monitoramento Ambiental: Analisar mudanças climáticas, desmatamento, poluição e recursos naturais.<br>
+Segurança e Defesa: Observar movimentações estratégicas, espionagem e comunicação militar.</p>
+      </div>
+</section>
+<section class="hidden">
+   <div class="hidden">
+     <h2>Objetivo dos Satélites</h2>
+      <p>Os satélites têm objetivos variados que atendem a diversas necessidades humanas e científicas. Eles são usados para comunicações, possibilitando transmissões de TV, telefonia e internet em escala global. Além disso, desempenham papéis cruciais no monitoramento ambiental, observando mudanças climáticas, desmatamento e desastres naturais. Satélites também são essenciais para a navegação, fornecendo dados para sistemas GPS e guiando aviões, navios e veículos terrestres. No campo da ciência, permitem estudos astronômicos, análise do espaço e observação da Terra com precisão. Por fim, são usados na defesa e segurança, viabilizando vigilância, rastreamento e comunicações militares estratégicas.</p>
+   </div>
+</section>
+<section  class="hidden">
+    <div class="hidden">
+     <h2>Quando Começaram a Ser Estudados?</h2>
+     <p>O estudo de satélites começou com teorias que explicavam o movimento dos corpos celestes. No século XVII, Johannes Kepler formulou as leis que regem as órbitas planetárias, enquanto Isaac Newton, no século XVIII, descreveu a gravidade e como ela influencia os objetos no espaço. Esses avanços abriram caminho para a ideia de objetos artificiais orbitando a Terra. No século XX, Konstantin Tsiolkovsky desenvolveu teorias sobre foguetes e propôs o uso de satélites para comunicações. Mais tarde, cientistas como Arthur C. Clarke imaginaram satélites geossíncronos, que tornaram-se viáveis com o avanço da tecnologia espacial na década de 1950.</p>
+   </div>
+</section>
+<section class="hidden">
+     <div class="hidden" >
+     <h2>Quando Começaram a Ser Produzidos Satélites Artificiais?</h2>
+     <p>A produção de satélites artificiais começou no contexto da Guerra Fria. Em 1957, a União Soviética lançou o Sputnik 1, o primeiro satélite artificial da história, como parte de uma competição tecnológica com os Estados Unidos. Pouco depois, em 1958, os EUA lançaram seu primeiro satélite, o Explorer 1. Esses lançamentos marcaram o início da exploração espacial e do uso de satélites artificiais para finalidades científicas, militares e comerciais. A partir daí, a produção de satélites se expandiu rapidamente, impulsionada por avanços tecnológicos e pela crescente demanda por conectividade e exploração.</p>
+   </div>
+</section>
+    </div>
+ </main>
+ <article id="section2" class="acrescimos">
+   <h1>Empresa</h1>
+   <p>Nossa empresa é especializada em astrologia e em proporcionar uma experiência única de autoconhecimento através dos astros. Com uma abordagem moderna e acessível, oferecemos conteúdo de qualidade sobre horóscopos, previsões astrológicas, mapas natais e temas relacionados ao universo astrológico.<br>
+Nosso time é composto por especialistas apaixonados por astrologia, comprometidos em oferecer informações precisas e insights valiosos para nossos leitores. Buscamos facilitar o entendimento das influências planetárias e ajudar nossos seguidores a se conectarem com seu verdadeiro propósito.<br>
+Aqui, cada conteúdo é pensado para inspirar, educar e transformar, tornando a astrologia uma ferramenta prática para o crescimento pessoal e a harmonia com o cosmos.</p>
+ </article>
+ <article id="section3" class="acrescimos">
+   <h1>Contactos</h1>
+   <p>Contacte-nos via terminal telefónico:<b>+244972798291</b> ou via E-mail:<b>theerror395.gmail.com</b></p>
+ </article>
+ <article id="section4" class="acrescimos">
+   <h1>Sobre Nós</h1>
+   <p>Bem-vindo ao nosso espaço dedicado à astrologia! Aqui, exploramos os mistérios do cosmos, conectando você ao poder dos astros e ajudando a desvendar o impacto deles em sua vida. Nosso objetivo é trazer insights profundos, orientações práticas e reflexões transformadoras por meio de análises astrológicas, horóscopos, e conteúdos exclusivos.<br>
+Acreditamos que a astrologia é uma ferramenta poderosa para o autoconhecimento e o crescimento pessoal. Junte-se a nós nesta jornada cósmica para entender mais sobre você, seus relacionamentos e os ciclos universais que moldam a sua jornada.<br>
+Estamos aqui para guiar e inspirar sua conexão com o universo!</p>
+ </article>
+</div>
+<script type="text/javascript" charset="utf-8">
+  setTimeout(function(){
+      document.getElementById('wel').style.display=" none";
+      document.getElementById('mae').style.display="flex";
+document.body.style="min-height:100vh;background-image: url('70314397883674638-10884426570576108.jpg'); background-size: cover;background-repeat: no-repeat;min-height: 100vh;background-attachment: fixed";
+    },3000);
+      setTimeout(function() {
+        document.getElementById('falsebox').style.display = "none";
+        document.getElementById('sec').style.display="block";
+        document.getElementById('caixas').style.display = "flex"; // Flex para centralização
+      }, 6100);
+const myObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry)=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show')
+    }
+    else {
+      entry.target.classList.remove('show')
+    }
+  })
+})
+const elements = document.querySelectorAll('.hidden')
+elements.forEach((element)=>myObserver.observe(element))
+</script>
+  </body>
+</html>
